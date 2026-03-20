@@ -1,4 +1,4 @@
-﻿namespace Vaultex.Domain.Entities;
+﻿namespace Vaultex.Domain.Entities.Accounts;
 
 public enum AccountStatus
 {
