@@ -1,23 +1,14 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
-USER $APP_UID
+﻿FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
 
-FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
-ARG BUILD_CONFIGURATION=Release
-WORKDIR /src
-COPY ["Vaultex/Vaultex.csproj", "Vaultex/"]
-RUN dotnet restore "Vaultex/Vaultex.csproj"
-COPY . .
-WORKDIR "/src/Vaultex"
-RUN dotnet build "./Vaultex.csproj" -c $BUILD_CONFIGURATION -o /app/build
+COPY *.csproj ./
+RUN dotnet restore
 
-FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Vaultex.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+COPY . ./
+RUN dotnet publish -c Release -o /out
 
-FROM base AS final
+FROM mcr.microsoft.com/dotnet/aspnet:10.0
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build /out .
+
 ENTRYPOINT ["dotnet", "Vaultex.dll"]
