@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Vaultex")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d65992fa0f3d05264f7c56bec1309c6d435aa64b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77d38fb68d2b42312d5c268b6fffad7e4f797051")]
 [assembly: System.Reflection.AssemblyProductAttribute("Vaultex")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Vaultex")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
