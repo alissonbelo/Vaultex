@@ -1,0 +1,7 @@
+﻿services:
+  vaultex:
+    image: vaultex
+    build:
+      context: .
+      dockerfile: Vaultex/Dockerfile
+
